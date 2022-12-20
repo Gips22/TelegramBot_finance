@@ -1,5 +1,6 @@
 """Основной файл для запуска сервера и обработки запросов (без логики-она вынесена в отдельные файлы)"""
 import logging
+import accounting
 
 from aiogram import Bot, Dispatcher, executor, types
 from config import API_TOKEN, ACCESS_ID
@@ -39,7 +40,7 @@ async def send_welcome(message: types.Message):
 async def del_expense(message: types.Message):
     """Удаляет одну запись о расходе по её идентификатору"""
     row_id = int(message.text[4:])
-    expenses.delete_expense(row_id)
+    accounting.delete_expense(row_id)
     answer_message = "Удалил"
     await message.answer(answer_message)
 
