@@ -3,6 +3,8 @@ import logging
 import accounting
 
 from aiogram import Bot, Dispatcher, executor, types
+
+from categories import Categories
 from config import API_TOKEN, ACCESS_ID
 
 logging.basicConfig(level=logging.INFO)  # включаем логирование по инструкции
